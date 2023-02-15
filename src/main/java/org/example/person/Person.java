@@ -1,5 +1,5 @@
 package org.example.person;
-import org.jetbrains.annotations.NotNull;
+
 
 import java.util.List;
 
@@ -33,17 +33,19 @@ public class Person {
     public int getAge() {return age;}
 
     public String getGender() {return gender;}
-    public double[] averageAgePerGender(@NotNull List<Person> persons){
+    public double[] averageAgePerGender( List<Person> persons){
         double maleAge = 0, femaleAge = 0;
         double mCount = 0, fCount = 0;
+        if(persons != null){
         for (Person a: persons) {
-            if (a.gender.equals("Male")) {
-                maleAge += a.age;
+            if (a.getGender().equals("Male")) {
+                maleAge += a.getAge();
                 mCount++;
-            } else if (a.gender.equals("Female")) {
-                femaleAge +=a.age;
+            } else if (a.getGender().equals("Female")) {
+                femaleAge +=a.getAge();
                 fCount++;
             }
+        }
         }
 
 
