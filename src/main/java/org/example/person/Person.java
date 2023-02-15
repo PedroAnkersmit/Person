@@ -16,9 +16,9 @@ public class Person {
     /**
      * Constructs a person with a name, age and gender.
      *
-     * @param name the name of the person
-     * @param age the age of the person
-     * @param gender the gender of the person
+     * @param //name the name of the person
+     * @param //age the age of the person
+     * @param //gender the gender of the person
      */
 
     public Person(String n, int a, String g){
@@ -26,6 +26,7 @@ public class Person {
         this.age = a;
         this.gender = g;
     }
+
 
     public String getName() {return name;}
 
@@ -41,17 +42,23 @@ public class Person {
                 mCount++;
             } else if (a.gender.equals("Female")) {
                 femaleAge +=a.age;
-                fCount--;
+                fCount++;
             }
         }
 
 
 
-        double[] res = null;
-        res[0] = maleAge/mCount;
-        res[1] = femaleAge/fCount;
-
-        return null;
+        double[] res = new double[2];
+        if(mCount == 0){
+        res[0] = mCount;} else {
+          res[0] = maleAge/mCount;
+        }
+        if(fCount == 0){
+            res[1] = fCount;
+        }else {
+            res[1] = femaleAge / fCount;
+        }
+        return res;
     }
 
 
